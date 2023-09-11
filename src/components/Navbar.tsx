@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { Home, FileSpreadsheet, GanttChartSquare, User2 } from 'lucide-react';
 
 import { MenuButton } from './MenuButton';
+import { ModeToggle } from './ModeToggle';
 
 export const navList = [
   {
@@ -37,9 +38,9 @@ export const navList = [
 export const Navbar = () => {
   const pathname = usePathname();
   return (
-    <header className='w-full    h-10 fixed top-0 flex  justify-between  p-8 items-center  mx-auto bg-secondary/30'>
+    <header className='w-full    h-10 fixed top-0 flex  justify-between  p-8 items-center  mx-auto bg-secondary/50 backdrop-blur-sm z-50 border-primary/10 border-b'>
       <div>LOGO</div>
-      <nav>
+      <nav className='flex items-center'>
         <ul className='hidden md:block'>
           {navList.map((item, idx) => (
             <Link
@@ -57,6 +58,9 @@ export const Navbar = () => {
           ))}
         </ul>
         <MenuButton />
+        <div className='ml-2'>
+          <ModeToggle />
+        </div>
       </nav>
     </header>
   );

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Button } from './ui/button';
 import { TypeAnimation } from 'react-type-animation';
+import { AboutSection } from './AboutSection';
 
 export const HeroSection = () => {
   return (
@@ -18,7 +19,7 @@ export const HeroSection = () => {
               // Same substring at the start will only be typed out once, initially
               'React Developer',
               1000, // wait 1s before replacing "Mice" with "Hamsters"
-              'I love creating music',
+              'Production Music',
               1000,
             ]}
             wrapper='span'
@@ -32,7 +33,7 @@ export const HeroSection = () => {
         <div className='space-x-4'>
           <Button
             size={'lg'}
-            className='bg-gradient-to-r from-blue-500 to-sky-400 hover:opacity-90 transition text-primary'
+            className='bg-gradient-to-r from-blue-500 to-sky-400 hover:opacity-90 transition text-white'
             variant={'secondary'}
           >
             Hire Me
@@ -51,6 +52,10 @@ export const HeroSection = () => {
             src='https://images.unsplash.com/photo-1481437642641-2f0ae875f836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
           />
         </div>
+      </div>
+      <div className='  md:col-span-2 col-span-1 '>
+
+      <AboutSection/>
       </div>
     </section>
   );
