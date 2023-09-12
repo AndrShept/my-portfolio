@@ -45,7 +45,7 @@ export const Navbar = () => {
           {navList.map((item, idx) => (
             <Link
               className={cn(
-                'px-3 py-3  border-b-2 border-transparent text-primary ',
+                'px-3 py-3  border-b-2 border-transparent text-muted-foreground ',
                 {
                   'border-blue-400': pathname === item.name,
                 }

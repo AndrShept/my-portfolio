@@ -53,10 +53,7 @@ export const HeroSection = () => {
           />
         </div>
       </div>
-      <div className='  md:col-span-2 col-span-1 '>
 
-      <AboutSection/>
-      </div>
     </section>
   );
 };
