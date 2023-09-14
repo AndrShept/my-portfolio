@@ -1,11 +1,44 @@
-'use client'
+'use client';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import z from 'zod';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from './ui/input';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from './ui/button';
+import { Textarea } from './ui/textarea';
+import { Loader2 } from 'lucide-react';
+
+const formSchema = z.object({
+  email: z.string().email(),
+  subject: z.string().min(4).max(30),
+  message: z.string().min(4),
+});
 
 export const EmailSection = () => {
-
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: '',
+      subject: '',
+      message: '',
+    },
+  });
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+  const isLoading = form.formState.isSubmitting;
   return (
     <section className='grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4'>
       <div>
@@ -23,16 +56,95 @@ export const EmailSection = () => {
             className='h-12 w-12 relative '
             href={'https://github.com/AndrShept'}
           >
-            <Image className='bg-black rounded-full' fill src={'/github-icon.svg'} alt='img' />
+            <Image
+              className='bg-black rounded-full'
+              fill
+              src={'/github-icon.svg'}
+              alt='img'
+            />
           </Link>
           <Link
             target='_blank'
             className='h-12 w-12 relative'
             href={'https://github.com/AndrShept'}
           >
-            <Image className='bg-black rounded-full' fill src={'/linkedin-icon.svg'} alt='img' />
+            <Image
+              className='bg-black rounded-full'
+              fill
+              src={'/linkedin-icon.svg'}
+              alt='img'
+            />
           </Link>
         </div>
+      </div>
+      <div className='flex flex-col max-w-2xl  '>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+            <FormField
+              control={form.control}
+              name='email'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className='bg-secondary/40'
+                      placeholder='email@gmail.com'
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription>Enter your email</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='subject'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Subject</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      className='bg-secondary/40'
+                      placeholder='Just Say'
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    This is your public display name.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='message'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Message</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      disabled={isLoading}
+                      className='bg-secondary/40 resize-none'
+                      placeholder='Lets talk about'
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button disabled={isLoading} className='w-full' type='submit'>
+              {isLoading ? 'sending...' : ' Send Message'}
+              {isLoading && <Loader2 className='animate-spin ml-2' />}
+            </Button>
+          </form>
+        </Form>
       </div>
     </section>
   );

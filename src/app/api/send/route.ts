@@ -17,7 +17,7 @@ export async function POST(req:Request) {
       text: ''
     });
 
-    return NextResponse.json(data, {status: 200});
+    return NextResponse.json(data, {status: 201});
   } catch (error) {
     return NextResponse.json({ error });
   }

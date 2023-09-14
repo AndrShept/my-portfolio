@@ -38,7 +38,7 @@ export const navList = [
 export const Navbar = () => {
   const pathname = usePathname();
   return (
-    <header className='w-full    h-10 fixed top-0 flex  justify-between  p-8 items-center  mx-auto bg-secondary/50 backdrop-blur-sm z-50 border-primary/10 border-b'>
+    <header className='w-full    h-10 fixed top-0 flex  justify-between  p-8 items-center  mx-auto bg-secondary/70 backdrop-blur-sm z-50 border-primary/10 border-b'>
       <div>LOGO</div>
       <nav className='flex items-center'>
         <ul className='hidden md:block'>
