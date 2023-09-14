@@ -1,5 +1,4 @@
 'use client';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -19,6 +18,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
 import { Loader2 } from 'lucide-react';
+import { useToast } from './ui/use-toast';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -35,8 +35,25 @@ export const EmailSection = () => {
       message: '',
     },
   });
+  const { toast } = useToast();
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    try {
+      const res = await fetch('/api/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+      const result = await res.json();
+      if (result.id) {
+        toast({
+          title: 'SUCCESS',
+          description: 'Email success sending !!!',
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      toast({ description: 'Something went wrong', variant: 'destructive' });
+    }
   };
   const isLoading = form.formState.isSubmitting;
   return (
@@ -90,7 +107,7 @@ export const EmailSection = () => {
                     <Input
                       disabled={isLoading}
                       className='bg-secondary/40'
-                      placeholder='email@gmail.com'
+                      placeholder='example@mail.com'
                       {...field}
                     />
                   </FormControl>
@@ -109,13 +126,10 @@ export const EmailSection = () => {
                     <Input
                       disabled={isLoading}
                       className='bg-secondary/40'
-                      placeholder='Just Say'
+                      placeholder=''
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>
-                    This is your public display name.
-                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -130,7 +144,7 @@ export const EmailSection = () => {
                     <Textarea
                       disabled={isLoading}
                       className='bg-secondary/40 resize-none'
-                      placeholder='Lets talk about'
+                      placeholder=''
                       {...field}
                     />
                   </FormControl>
