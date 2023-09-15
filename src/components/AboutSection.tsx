@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import React, { useState, useTransition } from 'react';
 import { TabButton } from './TabButton';
+import { motion } from 'framer-motion';
 
 const TAB_DATA = [
   {
@@ -73,7 +74,12 @@ export const AboutSection = () => {
   const [tab, setTab] = useState('skills');
 
   return (
-    <section className='text-primary'>
+    <motion.section
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className='text-primary'
+    >
       <div className='grid   md:grid-cols-2 gap-8   py-8 px-4 xl:gap-16 sm:py-16'>
         <Image
           className='rounded-md ml-auto'
@@ -109,6 +115,6 @@ export const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
