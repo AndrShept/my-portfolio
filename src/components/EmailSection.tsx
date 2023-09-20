@@ -30,7 +30,6 @@ const formSchema = z.object({
 export const EmailSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  console.log(isInView);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,7 +52,7 @@ export const EmailSection = () => {
           title: 'SUCCESS',
           description: 'Email success sending !!!',
         });
-        form.reset()
+        form.reset();
       }
     } catch (error) {
       console.log(error);
@@ -63,8 +62,9 @@ export const EmailSection = () => {
   const isLoading = form.formState.isSubmitting;
   return (
     <section
+      id='Contact'
       ref={ref}
-      className='grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4'
+      className='grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 h-screen'
     >
       {isInView && (
         <>
@@ -79,7 +79,7 @@ export const EmailSection = () => {
             }}
             transition={{
               duration: 0.5,
-              delay: 1,
+              delay: 0.6,
             }}
           >
             <h5 className='text-xl font-bold text-primary my-2'>
@@ -128,7 +128,7 @@ export const EmailSection = () => {
             }}
             transition={{
               duration: 0.5,
-              delay: 1,
+              delay: 0.6,
             }}
             className='flex flex-col max-w-2xl  '
           >

@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+import {Link} from 'react-scroll';
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -14,24 +14,28 @@ export const navList = [
     href: '/',
     id: Date.now(),
     icon: Home,
+    to: 'Home'
   },
   {
     name: 'About',
     href: '/about',
     id: Date.now(),
     icon: FileSpreadsheet,
+    to: 'About'
   },
   {
     name: 'Projects',
     href: '/projects',
     id: Date.now(),
     icon: GanttChartSquare,
+    to: 'Project'
   },
   {
     name: 'Contact',
     href: '/contact',
     id: Date.now(),
     icon: User2,
+    to: 'Contact'
   },
 ];
 
@@ -44,13 +48,22 @@ export const Navbar = () => {
         <ul className='hidden md:block'>
           {navList.map((item, idx) => (
             <Link
+            offset={-80}
+            spy={true}
+            hashSpy={true}
+            isDynamic={true}
+            smooth={true}
+            spyThrottle={500}
+            duration={500}
+            // delay={1000}
+            activeClass='border-blue-400 border font-bold text-primary'
+            
               className={cn(
-                'px-3 py-3  border-b-2 border-transparent text-muted-foreground ',
-                {
-                  'border-blue-400': pathname === item.name,
-                }
+
+                'cursor-pointer px-3 py-3  border-b-2 border-transparent text-muted-foreground ',
+
               )}
-              href={item.href}
+              to={item.to}
               key={item.id + idx}
             >
               {item.name}

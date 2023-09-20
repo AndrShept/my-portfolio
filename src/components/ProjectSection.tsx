@@ -11,7 +11,9 @@ export const ProjectSection = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section>
+    <section
+    id='Project'
+    >
       <h2 className='text-center text-4xl font-bold text-primary mb-12'>
         My Project
       </h2>

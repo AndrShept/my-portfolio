@@ -8,7 +8,9 @@ import {motion} from 'framer-motion'
 
 export const HeroSection = () => {
   return (
-    <section className='grid grid-cols-1 lg:grid-cols-2 gap-4 lg:text-start text-center  '>
+    <section
+    id='Home'
+    className='grid grid-cols-1 lg:grid-cols-2 gap-4 lg:text-start text-center  '>
       <motion.div
       initial={{
         opacity: 0,

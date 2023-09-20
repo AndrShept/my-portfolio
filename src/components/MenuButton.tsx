@@ -1,17 +1,16 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { AlignJustify } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import {Link} from 'react-scroll';
 import { navList } from './Navbar';
 import { cn } from '@/lib/utils';
 
 export const MenuButton = () => {
-  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false)
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen} >
       <SheetTrigger asChild>
         <Button className='md:hidden' variant={'ghost'} size={'icon'}>
           <AlignJustify size={25} />
@@ -21,14 +20,20 @@ export const MenuButton = () => {
         <ul className=' w-full gap-3 mt-20 flex flex-col text-primary/70  '>
           {navList.map((item, idx) => (
             <Link
-              href={item.href}
+            onClick={()=> setIsOpen(false)}
+            to={item.to}
+            offset={-80}
+            spy={true}
+            hashSpy={true}
+            isDynamic={true}
+            smooth={true}
+            spyThrottle={500}
+            duration={500}
+            // delay={1000}
+            activeClass='bg-secondary hover:bg-secondary text-primary  font-semibold text-primary'
               className={cn(
-                ' flex  gap-4 py-3 px-4 cursor-pointer hover:bg-secondary/40 border hover:border-border border-transparent transition rounded-md  text-start',
-                {
-                  'bg-secondary text-primary  hover:bg-secondary ': pathname === item.href,
-           
+                ' flex  gap-4 py-3 px-4 cursor-pointer  hover:bg-secondary/40 border hover:border-border border-transparent transition rounded-md  text-start',
 
-                }
               )}
               key={item.id + idx}
             >
