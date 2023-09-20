@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import z from 'zod';
 import {
   Form,
@@ -17,7 +17,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
-import { Loader2 } from 'lucide-react';
+import { Check, Copy, Loader2 } from 'lucide-react';
 import { useToast } from './ui/use-toast';
 import { motion, useInView } from 'framer-motion';
 
@@ -28,6 +28,8 @@ const formSchema = z.object({
 });
 
 export const EmailSection = () => {
+  const telNumber = '0504306203';
+  const [isCopy, setIsCopy] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const form = useForm<z.infer<typeof formSchema>>({
@@ -39,6 +41,16 @@ export const EmailSection = () => {
     },
   });
   const { toast } = useToast();
+  const onCopy = () => {
+    if (!telNumber) {
+      return;
+    }
+    navigator.clipboard.writeText(telNumber);
+    setIsCopy(true);
+    toast({
+      description: ' Message copied to clipboard',
+    });
+  };
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const res = await fetch('/api/send', {
@@ -64,7 +76,7 @@ export const EmailSection = () => {
     <section
       id='Contact'
       ref={ref}
-      className='grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 h-screen'
+      className='grid md:grid-cols-2 my-32 gap-8 h-screen'
     >
       {isInView && (
         <>
@@ -90,31 +102,45 @@ export const EmailSection = () => {
               always open. Whether you have a question or just want to say hi,
               I&apos;ll try my best to get back to you!
             </p>
-            <div className=' flex gap-2'>
-              <Link
-                target='_blank'
-                className='h-12 w-12 relative '
-                href={'https://github.com/AndrShept'}
-              >
-                <Image
-                  className='bg-black rounded-full'
-                  fill
-                  src={'/github-icon.svg'}
-                  alt='img'
-                />
-              </Link>
-              <Link
-                target='_blank'
-                className='h-12 w-12 relative'
-                href={'https://github.com/AndrShept'}
-              >
-                <Image
-                  className='bg-black rounded-full'
-                  fill
-                  src={'/linkedin-icon.svg'}
-                  alt='img'
-                />
-              </Link>
+
+            <div className='flex flex-col gap-2 p-4 border border-border rounded-xl bg-secondary/40 mt-10'>
+              <div className=' flex gap-2'>
+                <Link
+                  target='_blank'
+                  className='h-12 w-12 relative '
+                  href={'https://github.com/AndrShept'}
+                >
+                  <Image
+                    className='bg-black rounded-full'
+                    fill
+                    src={'/github-icon.svg'}
+                    alt='img'
+                  />
+                </Link>
+                <Link
+                  target='_blank'
+                  className='h-12 w-12 relative'
+                  href={'https://github.com/AndrShept'}
+                >
+                  <Image
+                    className='bg-black rounded-full'
+                    fill
+                    src={'/linkedin-icon.svg'}
+                    alt='img'
+                  />
+                </Link>
+              </div>
+              <div className='flex gap-2 items-center '>
+                <p>Tel:</p>
+                <p className='text-muted-foreground'> 050 430 62 03</p>
+                <Button onClick={onCopy} variant={'ghost'} size={'smallIcon'}>
+                  {isCopy ? (
+                    <Check className='text-green-500 ' />
+                  ) : (
+                    <Copy className='h-4 w-4' />
+                  )}
+                </Button>
+              </div>
             </div>
           </motion.div>
           <motion.div

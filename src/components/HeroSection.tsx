@@ -4,27 +4,28 @@ import React from 'react';
 import { Button } from './ui/button';
 import { TypeAnimation } from 'react-type-animation';
 import { AboutSection } from './AboutSection';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion';
 
 export const HeroSection = () => {
   return (
     <section
-    id='Home'
-    className='grid grid-cols-1 lg:grid-cols-2 gap-4 lg:text-start text-center  '>
+      id='Home'
+      className='grid grid-cols-1 lg:grid-cols-2 gap-4 lg:text-start text-center  '
+    >
       <motion.div
-      initial={{
-        opacity: 0,
-        x: -100
-      
-      }}
-      animate={{
-        opacity:1,
-        x:0
-      }}
-      transition={{
-        duration: 0.5
-      }}
-      className='place-self-center'>
+        initial={{
+          opacity: 0,
+          x: -100,
+        }}
+        animate={{
+          opacity: 1,
+          x: 0,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+        className='place-self-center'
+      >
         <h1 className=' mb-4 text-4xl lg:text-6xl sm:text-5xl font-extrabold text-primary '>
           <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-sky-400'>
             Hello, I&apos;m{' '}
@@ -47,7 +48,7 @@ export const HeroSection = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
         <div className='space-x-4'>
-          <Button
+          {/* <Button
             size={'lg'}
             className='bg-gradient-to-r from-blue-500 to-sky-400 hover:opacity-90 transition text-white'
             variant={'secondary'}
@@ -56,23 +57,23 @@ export const HeroSection = () => {
           </Button>
           <Button className='text-primary' size={'lg'} variant={'outline'}>
             Download CV
-          </Button>
+          </Button> */}
         </div>
       </motion.div>
       <motion.div
-            initial={{
-              opacity: 0,
-              x: 100
-            
-            }}
-            animate={{
-              opacity:1,
-              x:0
-            }}
-            transition={{
-              duration: 0.5
-            }}
-      className=' mx-auto lg:mt-0 mt-4 '>
+        initial={{
+          opacity: 0,
+          x: 100,
+        }}
+        animate={{
+          opacity: 1,
+          x: 0,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+        className=' mx-auto lg:mt-0 mt-4 '
+      >
         <div className='relative lg:h-[400px] lg:w-[400px] w-[250px] h-[250px]'>
           <Image
             className='object-cover rounded-full '
@@ -82,7 +83,6 @@ export const HeroSection = () => {
           />
         </div>
       </motion.div>
-
     </section>
   );
 };
