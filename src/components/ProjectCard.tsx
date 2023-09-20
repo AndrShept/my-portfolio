@@ -1,5 +1,6 @@
 'use client';
 import { Code2, Eye } from 'lucide-react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
@@ -25,6 +26,12 @@ export const ProjectCard = ({
         className='h-52 md:h-56 rounded-t-xl relative'
         style={{ background: `url(${imgUrl})`, backgroundSize: 'cover' }}
       >
+        <Image
+          src={imgUrl}
+          alt='img'
+          fill
+          className='object-cover rounded-t-xl'
+        />
         <div className='rounded-t-xl absolute inset-0 bg-[#181818] bg-opacity-0 group-hover:bg-opacity-80 transition flex   items-center justify-center'>
           <div className='space-x-4 opacity-0 group-hover:opacity-100'>
             <button
