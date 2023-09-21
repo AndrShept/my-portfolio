@@ -12,31 +12,41 @@ const TAB_DATA = [
       <ul className='space-y-1'>
         <li className='flex items-center'>
           <div className='h-5 w-5 relative'>
-            <Image fill alt='img' src='/typescript.png' className='object-cover' />
+            <Image
+              fill
+              alt='img'
+              src='/typescript.png'
+              className='object-cover'
+            />
           </div>
           <span className='ml-2'> TypeScript</span>
         </li>
         <li className='flex items-center'>
           <div className='h-5 w-5 relative'>
-            <Image fill alt='img' src='/node.png' className='object-cover'/>
+            <Image fill alt='img' src='/node.png' className='object-cover' />
           </div>
           <span className='ml-2'> Node.js</span>
         </li>
         <li className='flex items-center'>
           <div className='h-5 w-5 relative'>
-            <Image fill alt='img' src='/redux.png'className='object-cover' />
+            <Image fill alt='img' src='/redux.png' className='object-cover' />
           </div>
           <span className='ml-2'> Redux</span>
         </li>
         <li className='flex items-center'>
           <div className='h-5 w-5 relative'>
-            <Image fill alt='img' src='/tailwind.png'className='object-cover' />
+            <Image
+              fill
+              alt='img'
+              src='/tailwind.png'
+              className='object-cover'
+            />
           </div>
           <span className='ml-2'> TailwindCSS</span>
         </li>
         <li className='flex items-center'>
           <div className='h-5 w-5 relative'>
-            <Image fill alt='img' src='/react.png'className='object-cover' />
+            <Image fill alt='img' src='/react.png' className='object-cover' />
           </div>
           <span className='ml-2'> React</span>
         </li>

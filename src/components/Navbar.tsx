@@ -6,6 +6,8 @@ import { Home, FileSpreadsheet, GanttChartSquare, User2 } from 'lucide-react';
 
 import { MenuButton } from './MenuButton';
 import { ModeToggle } from './ModeToggle';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export const navList = [
   {
@@ -39,9 +41,15 @@ export const navList = [
 ];
 
 export const Navbar = () => {
+  const router = useRouter();
   return (
     <header className='w-full    h-10 fixed top-0 flex  justify-between  p-8 items-center  mx-auto bg-secondary/70 backdrop-blur-sm z-50 border-primary/10 border-b'>
-      <div>LOGO</div>
+      <button
+        onClick={() => router.push('/')}
+        className='relative h-10 w-10 cursor-pointer'
+      >
+        <Image alt='img' fill src={'/react.png'} className=' hover:opacity-90 transition' />
+      </button>
       <nav className='flex items-center'>
         <ul className='hidden md:block'>
           {navList.map((item, idx) => (
