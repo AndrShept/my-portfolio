@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { useInView, motion, AnimatePresence } from 'framer-motion';
 
 export const ProjectSection = () => {
-  const [tag, setTag] = useState('All');
+  const [tag, setTag] = useState('BlogX');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 

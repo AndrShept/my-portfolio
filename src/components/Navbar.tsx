@@ -43,7 +43,7 @@ export const navList = [
 export const Navbar = () => {
   const router = useRouter();
   return (
-    <header className='w-full    h-10 fixed top-0 flex  justify-between  p-8 items-center  mx-auto bg-secondary/70 backdrop-blur-sm z-50 border-primary/10 border-b'>
+    <header className='w-full    h-10 sticky top-0 flex  justify-between  p-8 items-center  mx-auto bg-secondary/70 backdrop-blur-sm z-50 border-primary/10 border-b'>
       <button
         onClick={() => router.push('/')}
         className='relative h-10 w-10 cursor-pointer'
