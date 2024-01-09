@@ -47,8 +47,13 @@ export const EmailSection = () => {
     }
     navigator.clipboard.writeText(telNumber);
     setIsCopy(true);
+    setTimeout(() => {
+      setIsCopy(false);
+    }, 5000);
     toast({
       description: ' Message copied to clipboard',
+      
+
     });
   };
   const onSubmit = async (values: z.infer<typeof formSchema>) => {

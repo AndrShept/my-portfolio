@@ -84,7 +84,7 @@ const TAB_DATA = [
         <li>
           I have experience in self-learning various technologies and skills in
           the field of web development. I have learned JavaScript, TypeScript,
-          React, Next, Redux, Node.js, Prisma, MongoDB, HTML, CSS, TailwindCSS,
+          React, Next, Redux, Zustand, Node.js, Prisma, MongoDB, HTML, CSS, TailwindCSS,
           and Git, and applied them to create my own pet projects
         </li>
       </ul>
@@ -117,7 +117,7 @@ export const AboutSection = () => {
           <p className='text-base md:text-lg text-start'>
             I am a web developer with a passion for creating interactive and
             responsive web applications. I have experience working with
-            JavaScript, TypeScript, React, Next, Redux, Node.js, Prisma,
+            JavaScript, TypeScript, React, Next, Redux, Zustand, Node.js, Prisma,
             MongoDB, HTML, CSS, TailwindCSS and Git. I am a quick learner and I
             am always looking to expand my knowledge and skill set. I am a team
             player and I am excited to work with others to create amazing
