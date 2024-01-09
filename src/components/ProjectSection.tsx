@@ -11,9 +11,7 @@ export const ProjectSection = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section
-    id='Project'
-    >
+    <section className='flex flex-col items-center'  id='Project'>
       <h2 className='text-center text-4xl font-bold text-primary mb-12'>
         My Project
       </h2>
@@ -36,34 +34,36 @@ export const ProjectSection = () => {
       </div>
       <motion.ul
         ref={ref}
-        className='grid lg:grid-cols-3 md:grid-cols-2 gap-8 md:gap-12 '
+        className='grid  xl:grid-cols-3 md:grid-cols-2 gap-8 md:gap-12 '
       >
         <AnimatePresence>
           {projectsData
             .filter((item) => item.tag.includes(tag))
-            .map((project, idx) => (
-             isInView && <motion.li
-                initial={{
-                  opacity: 0,
-                  y: 50,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{ duration: 0.4, delay: 0.3 * idx }}
-              
-                key={project.id}
-              >
-                <ProjectCard
-                  description={project.description}
-                  imgUrl={project.image}
-                  title={project.title}
-                  gitUrl={project.gitUrl}
-                  previewUrl={project.previewUrl}
-                />
-              </motion.li>
-            ))}
+            .map(
+              (project, idx) =>
+                isInView && (
+                  <motion.li
+                    initial={{
+                      opacity: 0,
+                      y: 50,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{ duration: 0.4, delay: 0.3 * idx }}
+                    key={project.id}
+                  >
+                    <ProjectCard
+                      description={project.description}
+                      imgUrl={project.image}
+                      title={project.title}
+                      gitUrl={project.gitUrl}
+                      previewUrl={project.previewUrl}
+                    />
+                  </motion.li>
+                )
+            )}
         </AnimatePresence>
       </motion.ul>
     </section>

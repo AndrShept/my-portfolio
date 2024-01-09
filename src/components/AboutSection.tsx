@@ -35,6 +35,12 @@ const TAB_DATA = [
         </li>
         <li className='flex items-center'>
           <div className='h-5 w-5 relative'>
+            <Image fill alt='img' src='/zustand.png' className='object-cover' />
+          </div>
+          <span className='ml-2'> Zustand</span>
+        </li>
+        <li className='flex items-center'>
+          <div className='h-5 w-5 relative'>
             <Image
               fill
               alt='img'
