@@ -1,4 +1,4 @@
-export const defaultTags = [
+export const tabs = [
   { id: 1, name: 'BlogX' },
   { id: 2, name: 'E-Commerce' },
   { id: 3, name: 'Mobile' },
@@ -23,12 +23,14 @@ export const projectsData = [
     image: '/projects/blogX/2.png',
     tag: ['BlogX'],
     gitUrl: 'https://github.com/AndrShept/my-twitter',
-    previewUrl: 'https://my-blog-x.vercel.app/profile/AndrSh/6511475c34af7a4d32fad21a',
+    previewUrl:
+      'https://my-blog-x.vercel.app/profile/AndrSh/6511475c34af7a4d32fad21a',
   },
   {
     id: 3,
     title: 'Post review',
-    description: 'you can view other users blogs, comment on them, like posts, and add them to favorites',
+    description:
+      'you can view other users blogs, comment on them, like posts, and add them to favorites',
     image: '/projects/blogX/3.png',
     tag: ['BlogX'],
     gitUrl: 'https://github.com/AndrShept/my-twitter',
@@ -36,9 +38,20 @@ export const projectsData = [
   },
   {
     id: 4,
-    title: 'Add posts',
-    description: 'Add posts',
+    title: 'Create posts',
+    description:
+      'The ability for users to create posts with their own text and images can be implemented through a data input interface',
     image: '/projects/blogX/4.png',
+    tag: ['BlogX'],
+    gitUrl: 'https://github.com/AndrShept/my-twitter',
+    previewUrl: 'https://my-blog-x.vercel.app/',
+  },
+  {
+    id: 5,
+    title: 'Post buttons',
+    description:
+      'The ability to express likes, comment, delete, and add to favorites can be implemented for users through corresponding buttons',
+    image: '/projects/blogX/5.png',
     tag: ['BlogX'],
     gitUrl: 'https://github.com/AndrShept/my-twitter',
     previewUrl: 'https://my-blog-x.vercel.app/',

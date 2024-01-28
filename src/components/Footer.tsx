@@ -1,14 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className='bg-secondary p-4 flex justify-around'>
-        
-            <span>LOGO</span>
-            <p>All right reserver.</p>
-       
+    <footer className="flex justify-around bg-secondary p-4">
+      <span>LOGO</span>
+      <p>All right reserver.</p>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

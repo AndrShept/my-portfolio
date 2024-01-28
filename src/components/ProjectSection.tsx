@@ -1,44 +1,45 @@
 'use client';
-import { defaultTags, projectsData } from '@/lib/projData';
-import React, { useRef, useState } from 'react';
-import { ProjectCard } from './ProjectCard';
+
+import { projectsData, tabs } from '@/lib/projData';
 import { cn } from '@/lib/utils';
-import { useInView, motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion, useInView } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+
+import { ProjectCard } from './ProjectCard';
 
 export const ProjectSection = () => {
-  const [tag, setTag] = useState('BlogX');
+  const [tabState, setTabState] = useState('BlogX');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section className='flex flex-col items-center'  id='Project'>
-      <h2 className='text-center text-4xl font-bold text-primary mb-12'>
+    <section className="flex flex-col items-center" id="Project">
+      <h2 className="mb-12 text-center text-4xl font-bold text-primary">
         My Project
       </h2>
-      <div className='text-primary flex justify-center items-center gap-2 py-6 mt-4 mb-8 md:mb-12'>
-        {defaultTags.map((defaultTag) => (
+      <div className="mb-8 mt-4 flex items-center justify-center gap-2 py-6 text-primary md:mb-12">
+        {tabs.map((tab) => (
           <button
-            onClick={() => setTag(defaultTag.name)}
-            key={defaultTag.id}
+            onClick={() => setTabState(tab.name)}
+            key={tab.id}
             className={cn(
-              'rounded-full border-2 hover:border-primary/30 border-secondary px-6 py-3 text-xs cursor-pointer transition',
+              'cursor-pointer rounded-full border-2 border-secondary px-6 py-3 text-xs transition hover:border-primary/30',
               {
-                'border-blue-500 hover:border-blue-500':
-                  defaultTag.name === tag,
-              }
+                'border-blue-500 hover:border-blue-500': tab.name === tabState,
+              },
             )}
           >
-            {defaultTag.name}
+            {tab.name}
           </button>
         ))}
       </div>
       <motion.ul
         ref={ref}
-        className='grid  xl:grid-cols-3 md:grid-cols-2 gap-8 md:gap-12 '
+        className="grid  gap-8 md:grid-cols-2 md:gap-12 xl:grid-cols-3 "
       >
         <AnimatePresence>
           {projectsData
-            .filter((item) => item.tag.includes(tag))
+            .filter((item) => item.tag.includes(tabState))
             .map(
               (project, idx) =>
                 isInView && (
@@ -62,7 +63,7 @@ export const ProjectSection = () => {
                       previewUrl={project.previewUrl}
                     />
                   </motion.li>
-                )
+                ),
             )}
         </AnimatePresence>
       </motion.ul>

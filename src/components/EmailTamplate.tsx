@@ -2,7 +2,7 @@ import * as React from 'react';
 
 interface EmailTemplateProps {
   text: string;
-  email: string
+  email: string;
 }
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({

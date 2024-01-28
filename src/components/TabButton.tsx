@@ -25,11 +25,10 @@ export const TabButton = ({
     : 'text-muted-foreground';
   return (
     <button
-    className={`mr-3 px-1 font-semibold hover:text-primary text-muted-foreground border-b-2 ${buttonClasses}`}
-     onClick={handleTabChange}>
-
-        {children}
-
+      className={`mr-3 border-b-2 px-1 font-semibold text-muted-foreground hover:text-primary ${buttonClasses}`}
+      onClick={handleTabChange}
+    >
+      {children}
     </button>
   );
 };

@@ -1,7 +1,9 @@
 'use client';
+
 import { Code2, Eye, ZoomIn } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
+
 import { ActionTooltip } from './ActionTooltip';
 import { ModalImage } from './ModalImage';
 
@@ -21,39 +23,39 @@ export const ProjectCard = ({
   previewUrl,
 }: ProjectCardProps) => {
   return (
-    <div className='max-w-md group h-[431px]  '>
+    <div className="group h-[431px] max-w-md   ">
       <div
-        className='h-52 md:h-56 rounded-t-xl relative'
+        className="relative h-52 rounded-t-xl md:h-56 border-2"
         style={{ background: `url(${imgUrl})`, backgroundSize: 'cover' }}
       >
         <Image
           src={imgUrl}
-          alt='img'
+          alt="img"
           fill
-          className='object-cover rounded-t-xl'
+          className="rounded-t-xl object-cover"
         />
-        <div className='rounded-t-xl absolute inset-0 bg-[#181818] bg-opacity-0 group-hover:bg-opacity-80 transition flex   items-center justify-center'>
-          <div className='space-x-4 opacity-0 group-hover:opacity-100'>
-            <ActionTooltip label='Zoom Image' alignOffset={-9}>
+        <div className="absolute inset-0 flex items-center justify-center rounded-t-lg bg-[#181818] bg-opacity-0   transition group-hover:bg-opacity-80">
+          <div className="space-x-4 opacity-0 group-hover:opacity-100">
+            <ActionTooltip label="Zoom Image" alignOffset={-9}>
               {/* <a href={previewUrl} target='_blank' rel='noopener noreferrer'> */}
               <ModalImage src={imgUrl}>
-                <button className='p-3 rounded-full border-2 border-white/70 text-white/70 hover:text-white hover:border-white cursor-pointer transition'>
+                <button className="cursor-pointer rounded-full border-2 border-white/70 p-3 text-white/70 transition hover:border-white hover:text-white">
                   <ZoomIn size={30} />
                 </button>
               </ModalImage>
               {/* </a> */}
             </ActionTooltip>
-            <ActionTooltip label='Go to Blog' alignOffset={-5}>
-              <a href={previewUrl} target='_blank' rel='noopener noreferrer'>
-                <button className='p-3 rounded-full border-2 border-white/70 text-white/70 hover:text-white hover:border-white cursor-pointer transition'>
+            <ActionTooltip label="Go to Blog" alignOffset={-5}>
+              <a href={previewUrl} target="_blank" rel="noopener noreferrer">
+                <button className="cursor-pointer rounded-full border-2 border-white/70 p-3 text-white/70 transition hover:border-white hover:text-white">
                   <Eye size={30} />
                 </button>
               </a>
             </ActionTooltip>
 
-            <ActionTooltip label='GitHub Code' alignOffset={-11}>
-              <a href={gitUrl} target='_blank' rel='noopener noreferrer'>
-                <button className='p-3 rounded-full border-2 border-white/70 text-white/70 hover:text-white hover:border-white cursor-pointer transition'>
+            <ActionTooltip label="GitHub Code" alignOffset={-11}>
+              <a href={gitUrl} target="_blank" rel="noopener noreferrer">
+                <button className="cursor-pointer rounded-full border-2 border-white/70 p-3 text-white/70 transition hover:border-white hover:text-white">
                   <Code2 size={30} />
                 </button>
               </a>
@@ -61,9 +63,9 @@ export const ProjectCard = ({
           </div>
         </div>
       </div>
-      <div className='text-primary rounded-b-xl flex flex-col h-[130px] bg-secondary py-6 px-4'>
-        <h5 className='text-xl font-semibold mb-2 '>{title}</h5>
-        <p className='text-muted-foreground'>{description}</p>
+      <div className="flex  h-[130px] flex-col rounded-b-xl bg-secondary px-4 py-6 text-primary">
+        <h5 className="mb-2 text-xl font-semibold ">{title}</h5>
+        <p className="text-muted-foreground text-sm">{description}</p>
       </div>
     </div>
   );

@@ -1,8 +1,5 @@
 'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useRef, useState } from 'react';
-import z from 'zod';
+
 import {
   Form,
   FormControl,
@@ -12,14 +9,19 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Input } from './ui/input';
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from './ui/button';
-import { Textarea } from './ui/textarea';
-import { Check, Copy, Loader2 } from 'lucide-react';
-import { useToast } from './ui/use-toast';
 import { motion, useInView } from 'framer-motion';
+import { Check, Copy, Loader2 } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import z from 'zod';
+
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { useToast } from './ui/use-toast';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -52,8 +54,6 @@ export const EmailSection = () => {
     }, 5000);
     toast({
       description: ' Message copied to clipboard',
-      
-
     });
   };
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -79,9 +79,9 @@ export const EmailSection = () => {
   const isLoading = form.formState.isSubmitting;
   return (
     <section
-      id='Contact'
+      id="Contact"
       ref={ref}
-      className='grid md:grid-cols-2 my-32 gap-8 h-screen'
+      className="my-32 grid h-[710px] gap-8 md:grid-cols-2 "
     >
       {isInView && (
         <>
@@ -99,50 +99,50 @@ export const EmailSection = () => {
               delay: 0.6,
             }}
           >
-            <h5 className='text-xl font-bold text-primary my-2'>
+            <h5 className="my-2 text-xl font-bold text-primary">
               Let&apos;s Connect
             </h5>
-            <p className='text-muted-foreground mb-4 max-md'>
+            <p className="max-md mb-4 text-muted-foreground">
               I&apos;m currently looking for new opportunities, my inbox is
               always open. Whether you have a question or just want to say hi,
               I&apos;ll try my best to get back to you!
             </p>
 
-            <div className='flex flex-col gap-2 p-4 border border-border rounded-xl bg-secondary/40 mt-10'>
-              <div className=' flex gap-2'>
+            <div className="mt-10 flex flex-col gap-2 rounded-xl border border-border bg-muted/70 p-4">
+              <div className=" flex gap-2">
                 <Link
-                  target='_blank'
-                  className='h-12 w-12 relative '
+                  target="_blank"
+                  className="relative h-12 w-12 "
                   href={'https://github.com/AndrShept'}
                 >
                   <Image
-                    className='bg-black rounded-full'
+                    className="rounded-full bg-black"
                     fill
                     src={'/github-icon.svg'}
-                    alt='img'
+                    alt="img"
                   />
                 </Link>
                 <Link
-                  target='_blank'
-                  className='h-12 w-12 relative'
+                  target="_blank"
+                  className="relative h-12 w-12"
                   href={'https://github.com/AndrShept'}
                 >
                   <Image
-                    className='bg-black rounded-full'
+                    className="rounded-full bg-black"
                     fill
                     src={'/linkedin-icon.svg'}
-                    alt='img'
+                    alt="img"
                   />
                 </Link>
               </div>
-              <div className='flex gap-2 items-center '>
+              <div className="flex items-center gap-2 ">
                 <p>Tel:</p>
-                <p className='text-muted-foreground'> 050 430 62 03</p>
+                <p className="text-muted-foreground"> 050 430 62 03</p>
                 <Button onClick={onCopy} variant={'ghost'} size={'smallIcon'}>
                   {isCopy ? (
-                    <Check className='text-green-500 ' />
+                    <Check className="text-green-500 " />
                   ) : (
-                    <Copy className='h-4 w-4' />
+                    <Copy className="h-4 w-4" />
                   )}
                 </Button>
               </div>
@@ -161,24 +161,24 @@ export const EmailSection = () => {
               duration: 0.5,
               delay: 0.6,
             }}
-            className='flex flex-col max-w-2xl  '
+            className="flex max-w-2xl flex-col  "
           >
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className='space-y-8'
+                className="space-y-8"
               >
                 <FormField
                   control={form.control}
-                  name='email'
+                  name="email"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input
                           disabled={isLoading}
-                          className='bg-secondary/40'
-                          placeholder='example@mail.com'
+                          className="bg-muted/70"
+                          placeholder="example@mail.com"
                           {...field}
                         />
                       </FormControl>
@@ -189,15 +189,15 @@ export const EmailSection = () => {
                 />
                 <FormField
                   control={form.control}
-                  name='subject'
+                  name="subject"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
                         <Input
                           disabled={isLoading}
-                          className='bg-secondary/40'
-                          placeholder=''
+                          className="bg-muted/70"
+                          placeholder=""
                           {...field}
                         />
                       </FormControl>
@@ -207,15 +207,15 @@ export const EmailSection = () => {
                 />
                 <FormField
                   control={form.control}
-                  name='message'
+                  name="message"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
                         <Textarea
                           disabled={isLoading}
-                          className='bg-secondary/40 resize-none'
-                          placeholder=''
+                          className="resize-none bg-muted/70"
+                          placeholder=""
                           {...field}
                         />
                       </FormControl>
@@ -224,9 +224,9 @@ export const EmailSection = () => {
                     </FormItem>
                   )}
                 />
-                <Button disabled={isLoading} className='w-full' type='submit'>
+                <Button disabled={isLoading} className="w-full" type="submit">
                   {isLoading ? 'sending...' : ' Send Message'}
-                  {isLoading && <Loader2 className='animate-spin ml-2' />}
+                  {isLoading && <Loader2 className="ml-2 animate-spin" />}
                 </Button>
               </form>
             </Form>

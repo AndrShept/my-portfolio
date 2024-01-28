@@ -12,7 +12,7 @@ export async function POST(req: Request) {
       from: 'portfolioCallBack <andriySheptyckiy@resend.dev>',
       to: ['lolokos1986@gmail.com'],
       subject: subject,
-      react: EmailTemplate({  email,  text: message }),
+      react: EmailTemplate({ email, text: message }),
       text: '',
     });
 

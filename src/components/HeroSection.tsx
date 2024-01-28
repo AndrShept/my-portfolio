@@ -1,16 +1,19 @@
 'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
-import { Button } from './ui/button';
 import { TypeAnimation } from 'react-type-animation';
+
 import { AboutSection } from './AboutSection';
-import { motion } from 'framer-motion';
+import { BackgroundGradient } from './ui/background-gradient';
+import { Button } from './ui/button';
 
 export const HeroSection = () => {
   return (
     <section
-      id='Home'
-      className='grid grid-cols-1 lg:grid-cols-2 gap-4 lg:text-start text-center  '
+      id="Home"
+      className="grid grid-cols-1 gap-4 text-center lg:grid-cols-2 lg:text-start  "
     >
       <motion.div
         initial={{
@@ -24,10 +27,10 @@ export const HeroSection = () => {
         transition={{
           duration: 0.5,
         }}
-        className='place-self-center'
+        className="place-self-center"
       >
-        <h1 className=' mb-4 text-4xl lg:text-6xl sm:text-5xl font-extrabold text-primary '>
-          <span className='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-sky-400'>
+        <h1 className=" mb-4 text-4xl font-extrabold text-primary sm:text-5xl lg:text-6xl ">
+          <span className="bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
             Hello, I&apos;m{' '}
           </span>
           <br />
@@ -39,15 +42,15 @@ export const HeroSection = () => {
               'Cool Developer :)',
               1000,
             ]}
-            wrapper='span'
+            wrapper="span"
             speed={50}
             repeat={Infinity}
           />
         </h1>
-        <p className='text-muted-foreground mb-6 text-lg lg:text-xl'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        <p className="mb-6 text-lg text-muted-foreground lg:text-xl">
+          {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
         </p>
-        <div className='space-x-4'>
+        <div className="space-x-4">
           {/* <Button
             size={'lg'}
             className='bg-gradient-to-r from-blue-500 to-sky-400 hover:opacity-90 transition text-white'
@@ -72,16 +75,18 @@ export const HeroSection = () => {
         transition={{
           duration: 0.5,
         }}
-        className=' mx-auto lg:mt-0 mt-4 '
+        className=" mx-auto mt-4 lg:mt-0 "
       >
-        <div className='relative lg:h-[400px] lg:w-[400px] w-[250px] h-[250px]'>
-          <Image
-            className='object-cover rounded-full '
-            alt='Hero-img'
-            fill
-            src='https://images.unsplash.com/photo-1481437642641-2f0ae875f836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
-          />
-        </div>
+        <BackgroundGradient className='rounded-full' containerClassName='rounded-full'>
+          <div className="relative h-[250px] w-[250px] lg:h-[400px] lg:w-[400px]">
+            <Image
+              className="rounded-full object-cover  "
+              alt="Hero-img"
+              fill
+              src="https://images.unsplash.com/photo-1481437642641-2f0ae875f836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            />
+          </div>
+        </BackgroundGradient>
       </motion.div>
     </section>
   );
