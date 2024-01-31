@@ -52,7 +52,7 @@ export const AboutSection = () => {
               </TabButton>
             ))}
           </div>
-          <div className="mt-8 text-start">
+          <div className="mt-4 text-start">
             {TAB_DATA.find((t) => t.id === tab)?.content}
           </div>
         </div>

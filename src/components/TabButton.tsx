@@ -25,7 +25,7 @@ export const TabButton = ({
     : 'text-muted-foreground';
   return (
     <button
-      className={`mr-3 border-b-2 px-1 font-semibold text-muted-foreground hover:text-primary ${buttonClasses}`}
+      className={`mr-3 border-b-2 px-1 pb-2 font-semibold text-muted-foreground hover:text-primary ${buttonClasses}`}
       onClick={handleTabChange}
     >
       {children}
