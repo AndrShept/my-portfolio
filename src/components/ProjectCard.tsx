@@ -45,7 +45,7 @@ export const ProjectCard = ({
               </ModalImage>
               {/* </a> */}
             </ActionTooltip>
-            <ActionTooltip label="Go to Blog" alignOffset={-5}>
+            <ActionTooltip label="Go to App" alignOffset={-5}>
               <a href={previewUrl} target="_blank" rel="noopener noreferrer">
                 <button className="cursor-pointer rounded-full border-2 border-white/70 p-3 text-white/70 transition hover:border-white hover:text-white">
                   <Eye size={30} />
