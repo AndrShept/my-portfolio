@@ -1,104 +1,11 @@
 'use client';
 
+import { TAB_DATA } from '@/lib/tabData';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useState, useTransition } from 'react';
+import React, { useState } from 'react';
 
 import { TabButton } from './TabButton';
-
-const TAB_DATA = [
-  {
-    title: 'Skills',
-    id: 'skills',
-    content: (
-      <ul className="space-y-1">
-        <li className="flex items-center">
-          <div className="relative h-5 w-5">
-            <Image
-              fill
-              alt="img"
-              src="/typescript.png"
-              className="object-cover"
-            />
-          </div>
-          <span className="ml-2"> TypeScript</span>
-        </li>
-        <li className="flex items-center">
-          <div className="relative h-5 w-5">
-            <Image fill alt="img" src="/node.png" className="object-cover" />
-          </div>
-          <span className="ml-2"> Node.js</span>
-        </li>
-        <li className="flex items-center">
-          <div className="relative h-5 w-5">
-            <Image fill alt="img" src="/redux.png" className="object-cover" />
-          </div>
-          <span className="ml-2"> Redux</span>
-        </li>
-        <li className="flex items-center">
-          <div className="relative h-5 w-5">
-            <Image fill alt="img" src="/zustand.png" className="object-cover" />
-          </div>
-          <span className="ml-2"> Zustand</span>
-        </li>
-        <li className="flex items-center">
-          <div className="relative h-5 w-5">
-            <Image
-              fill
-              alt="img"
-              src="/tailwind.png"
-              className="object-cover"
-            />
-          </div>
-          <span className="ml-2"> TailwindCSS</span>
-        </li>
-        <li className="flex items-center">
-          <div className="relative h-5 w-5">
-            <Image fill alt="img" src="/react.png" className="object-cover" />
-          </div>
-          <span className="ml-2"> React</span>
-        </li>
-        <li className="flex items-center">
-          <div className="relative h-5 w-5">
-            <Image
-              className="rounded-full border border-white bg-white object-cover"
-              fill
-              alt="img"
-              src="/next.png"
-            />
-          </div>
-          <span className="ml-2"> Next</span>
-        </li>
-      </ul>
-    ),
-  },
-  {
-    title: 'Education',
-    id: 'education',
-    content: (
-      <ul>
-        <li>
-          I am a self-taught developer, having independently acquired my
-          knowledge and skills
-        </li>
-      </ul>
-    ),
-  },
-  {
-    title: 'Experience',
-    id: 'experience',
-    content: (
-      <ul>
-        <li>
-          I have experience in self-learning various technologies and skills in
-          the field of web development. I have learned JavaScript, TypeScript,
-          React, Next, Redux, Zustand, Node.js, Prisma, MongoDB, HTML, CSS,
-          TailwindCSS, and Git, and applied them to create my own pet projects
-        </li>
-      </ul>
-    ),
-  },
-];
 
 export const AboutSection = () => {
   const [tab, setTab] = useState('skills');
@@ -109,10 +16,10 @@ export const AboutSection = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="text-primary"
+      className="text-primary  "
     >
-      <div className="grid   gap-8 px-4    py-8 sm:py-16 md:grid-cols-2 xl:gap-16">
-        <div className="relative aspect-video max-h-[400px] max-w-[700px] overflow-hidden rounded-lg  border-2 hover:drop-shadow-md   ">
+      <div className="grid   gap-8 px-4   py-8 sm:py-16 md:grid-cols-2 xl:gap-16">
+        <div className="relative aspect-[4/3] max-h-[400px] max-w-[700px] overflow-hidden rounded-lg  border-2 hover:drop-shadow-md   ">
           <Image
             priority
             className="ml-auto rounded-lg  object-cover transition hover:scale-105"

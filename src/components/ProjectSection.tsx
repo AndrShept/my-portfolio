@@ -35,7 +35,7 @@ export const ProjectSection = () => {
       </div>
       <motion.ul
         ref={ref}
-        className="grid  gap-8 md:grid-cols-2 md:gap-12 xl:grid-cols-3 "
+        className="grid   gap-8 md:grid-cols-2 md:gap-12 xl:grid-cols-3 "
       >
         <AnimatePresence>
           {projectsData
