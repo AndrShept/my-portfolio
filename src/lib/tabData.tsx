@@ -40,6 +40,17 @@ export const TAB_DATA = [
             <Image
               fill
               alt="img"
+              src="/react-query.svg"
+              className="object-cover"
+            />
+          </div>
+          <span className="ml-2"> Tanstack Query</span>
+        </li>
+        <li className="flex items-center">
+          <div className="relative h-5 w-5">
+            <Image
+              fill
+              alt="img"
               src="/tailwind.png"
               className="object-cover"
             />
@@ -86,8 +97,9 @@ export const TAB_DATA = [
         <li>
           I have experience in self-learning various technologies and skills in
           the field of web development. I have learned JavaScript, TypeScript,
-          React, Next, Redux, Zustand, Node.js, Prisma, MongoDB, HTML, CSS,
-          TailwindCSS, and Git, and applied them to create my own pet projects
+          React, Next, React Hook Form, Redux, Zustand, Tanstack Query, Node.js,
+          Prisma, MongoDB, HTML, CSS, TailwindCSS, and Git, and applied them to
+          create my own pet projects
         </li>
       </ul>
     ),

@@ -34,7 +34,7 @@ export const AboutSection = () => {
           <p className="text-start text-base md:text-lg">
             I am a web developer with a passion for creating interactive and
             responsive web applications. I have experience working with
-            JavaScript, TypeScript, React, Next, Redux, Zustand, Node.js,
+            JavaScript, TypeScript, React, Next, React Hook Form, Redux, Zustand, Tanstack Query,
             Prisma, MongoDB, HTML, CSS, TailwindCSS and Git. I am a quick
             learner and I am always looking to expand my knowledge and skill
             set. I am a team player and I am excited to work with others to
