@@ -21,6 +21,7 @@ export const MenuButton = () => {
       <SheetContent className="flex w-[300px] " side={'left'}>
         <ul className=" mt-20 flex w-full flex-col gap-3 text-primary/70  ">
           {navList.map((item, idx) => (
+            //@ts-ignore
             <Link
               onClick={() => setIsOpen(false)}
               to={item.to}
