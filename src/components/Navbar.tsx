@@ -59,6 +59,8 @@ export const Navbar = () => {
       <nav className="flex items-center">
         <ul className="hidden md:block">
           {navList.map((item, idx) => (
+            //@ts-ignore
+            
             <Link
               offset={-100}
               spy={true}

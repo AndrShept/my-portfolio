@@ -63,14 +63,15 @@ export const EmailSection = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
       });
-      const result = await res.json();
-      if (result.id) {
+      const {data} = await res.json();
+      if (data.id) {
         toast({
           title: 'SUCCESS',
           description: 'Email success sending !!!',
         });
         form.reset();
       }
+
     } catch (error) {
       console.log(error);
       toast({ description: 'Something went wrong', variant: 'destructive' });

@@ -23,8 +23,8 @@ export const ProjectCard = ({
   previewUrl,
 }: ProjectCardProps) => {
   return (
-    <section className="group flex max-w-md   flex-col h-full">
-      <div
+    <article className="group flex max-w-md   flex-col h-full">
+      <section
         className="relative h-52 rounded-t-xl border-2 md:h-56"
         style={{ background: `url(${imgUrl})`, backgroundSize: 'cover' }}
       >
@@ -62,11 +62,11 @@ export const ProjectCard = ({
             </ActionTooltip>
           </div>
         </div>
-      </div>
-      <div className="flex  flex-col flex-1 rounded-b-xl bg-secondary px-4 py-6 text-primary">
+      </section>
+      <section className="flex  flex-col flex-1 rounded-b-xl bg-secondary px-4 py-6 text-primary">
         <h5 className="mb-2 text-xl font-semibold ">{title}</h5>
         <p className="text-sm text-muted-foreground">{description}</p>
-      </div>
-    </section>
+      </section>
+    </article>
   );
 };

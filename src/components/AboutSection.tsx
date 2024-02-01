@@ -31,14 +31,14 @@ export const AboutSection = () => {
 
         <div className="items-start">
           <h2 className="mb-4 text-4xl font-bold text-primary ">About Me</h2>
-          <p className="text-start text-base md:text-lg">
+          <p className="text-start text-base text-muted-foreground md:text-lg">
             I am a web developer with a passion for creating interactive and
             responsive web applications. I have experience working with
-            JavaScript, TypeScript, React, Next, React Hook Form, Redux, Zustand, Tanstack Query,
-            Prisma, MongoDB, HTML, CSS, TailwindCSS and Git. I am a quick
-            learner and I am always looking to expand my knowledge and skill
-            set. I am a team player and I am excited to work with others to
-            create amazing applications.
+            JavaScript, TypeScript, React, Next, React Hook Form, Redux,
+            Zustand, Tanstack Query, Prisma, MongoDB, HTML, CSS, TailwindCSS and
+            Git. I am a quick learner and I am always looking to expand my
+            knowledge and skill set. I am a team player and I am excited to work
+            with others to create amazing applications.
           </p>
           <div className="mt-8 flex flex-row justify-start">
             {TAB_DATA.map((item) => (
