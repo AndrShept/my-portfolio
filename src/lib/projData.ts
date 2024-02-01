@@ -1,7 +1,7 @@
 export const tabs = [
   { id: 1, name: 'BlogX' },
   { id: 2, name: 'E-Commerce' },
-  { id: 3, name: 'Mobile' },
+
 ];
 
 export const projectsData = [

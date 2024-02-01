@@ -29,7 +29,7 @@ export const HeroSection = () => {
         }}
         className="place-self-center"
       >
-        <h1 className=" mb-4 text-4xl font-extrabold text-primary sm:text-5xl lg:text-6xl ">
+        <h1 className=" mb-4 h-[105px] text-4xl font-extrabold text-primary sm:text-5xl lg:text-6xl ">
           <span className="bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
             Hello, I&apos;m{' '}
           </span>

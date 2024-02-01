@@ -24,10 +24,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(`${inter.className}`)}>
+      <body className={cn(`${inter.className } `)}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Toaster />
-          <div className="flex h-[calc(100%-1000px)]  flex-col bg-dot-black/[0.07] dark:bg-dot-white/[0.07] ">
+          <div className="flex   flex-col bg-dot-black/[0.07] dark:bg-dot-white/[0.07] ">
             {/* <BackgroundBeams /> */}
             <Spotlight
               className="-top-40 left-0 md:-top-20 md:left-60 "
