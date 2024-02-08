@@ -11,10 +11,8 @@ export const ModalImage = ({ children, src }: ModalImageProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className=" aspect-video h-auto  max-w-[1400px]  ">
-        <div className="  relative max-w-[1400px]   ">
-          <Image className="object-contain h-auto " src={src} alt="img" fill />
-        </div>
+      <DialogContent className=" aspect-video max-h-full   max-w-[1350px]  ">
+        <Image className="object-contain  " src={src} alt="img" fill />
       </DialogContent>
     </Dialog>
   );
