@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -57,9 +58,6 @@ export const HeroSection = () => {
             variant={'secondary'}
           >
             Hire Me
-          </Button>
-          <Button className='text-primary' size={'lg'} variant={'outline'}>
-            Download CV
           </Button> */}
         </div>
       </motion.div>
@@ -75,9 +73,12 @@ export const HeroSection = () => {
         transition={{
           duration: 0.5,
         }}
-        className=" mx-auto mt-4 lg:mt-0 "
+        className=" mx-auto mt-4 lg:mt-0 flex flex-col "
       >
-        <BackgroundGradient className='rounded-full' containerClassName='rounded-full'>
+        <BackgroundGradient
+          className="rounded-full"
+          containerClassName="rounded-full"
+        >
           <div className="relative h-[250px] w-[250px] lg:h-[400px] lg:w-[400px]">
             <Image
               className="rounded-full object-cover  "
@@ -87,6 +88,21 @@ export const HeroSection = () => {
             />
           </div>
         </BackgroundGradient>
+        <Button
+          asChild
+          className="mx-auto text-primary mt-4 rounded-full border-2"
+          size={'lg'}
+          variant={'outline'}
+        >
+          <Link
+          target='_blank'
+            href={
+              'https://drive.google.com/file/d/1lZx_v6ByqEiyoejAqy6TScOubGIR6wMn/view?usp=drive_link'
+            }
+          >
+            Download CV
+          </Link>
+        </Button>
       </motion.div>
     </section>
   );
